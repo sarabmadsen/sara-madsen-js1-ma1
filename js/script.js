@@ -36,12 +36,15 @@ for(let i = 0; i < paragraphs.length; i++) {
 
 
 //Question 6:
-/*Select the div with a class of results, assign it to a variable called 
-resultsContainer and set its inner HTML to be <p>New paragraph</p> and its 
-background colour to be yellow.*/
 
 const resultsContainer = document.querySelector(".results");
 
+resultsContainer.innerHTML = `<p>New paragraph</p>`;
+
+resultsContainer.style.backgroundColor = "yellow";
+
+
+//Question 7:
 
 const cats = [
     {
@@ -56,3 +59,45 @@ const cats = [
         age: 21
     }
 ];
+
+function myList(list) {
+
+    for(let i = 0; i < list.length; i++) {
+        console.log(list[i].name);
+    }
+
+}
+
+myList(cats);
+
+
+//Question 8:
+
+function createCats(cats) {
+
+    let html = "";
+
+    for(let i = 0; i < cats.length; i++) {
+
+        let ageProperty = "Age unknown";
+
+        if(cats[i].age) {
+            ageProperty = cats[i].age;
+        }
+
+        html += `<div>
+                    <h5>${cats[i].name}</h5>
+                    <p>${ageProperty}</p>
+                </div>`;
+
+    }
+
+    return html;
+
+}
+
+const newHTML = createCats(cats);
+
+const catContainer = document.querySelector(".cat-container");
+
+catContainer.innerHTML += newHTML;
